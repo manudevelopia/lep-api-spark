@@ -14,7 +14,7 @@ import static spark.Spark.get
 @CompileStatic
 class Launcher {
     static void main(String[] args) {
-        Injector injector = Guice.createInjector()
+        Injector injector = Guice.createInjector(new Module())
         ComposeController composeController = injector.getInstance(ComposeController)
         ComposeService composeService = injector.getInstance(ComposeServiceImpl)
         ComposeRepository composeRepository = injector.getInstance(ComposeRepositoryImpl)
