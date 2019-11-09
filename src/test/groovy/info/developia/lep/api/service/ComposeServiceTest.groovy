@@ -4,7 +4,6 @@ import info.developia.lep.api.repository.ComposeRepository
 import spock.lang.Specification
 
 class ComposeServiceTest extends Specification {
-
     ComposeRepository composeRepository
     ComposeService composeService
 
@@ -21,5 +20,4 @@ class ComposeServiceTest extends Specification {
         then:
         result == "<h2>Hello world!!</h2>"
     }
-
 }
