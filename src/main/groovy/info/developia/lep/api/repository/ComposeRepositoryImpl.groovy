@@ -1,15 +1,18 @@
 package info.developia.lep.api.repository
 
-import info.developia.lep.api.model.Compose
+import com.google.inject.Inject
+import info.developia.lep.api.mapper.ComposeMapper
 
 class ComposeRepositoryImpl implements ComposeRepository {
+    ComposeMapper composeMapper
 
-    def composes = [
-        new Compose(ncas: "ncas", nce: "nce", name: "name", description: "description")
-    ]
+    @Inject
+    ComposeRepositoryImpl(ComposeMapper composeMapper) {
+        this.composeMapper = composeMapper
+    }
 
     @Override
     def getAll() {
-        return composes
+        return composeMapper.getAll()
     }
 }
