@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  lep-api:
+    image: manudevelopia/lep-api:latest
+    container_name: lep-api
+
+  lep-db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=lep_admin
+      - POSTGRES_PASSWORD=lep_password
+      - POSTGRES_DB=LEP_DB
+    ports:
+      - 5432:5432
+    volumes:
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./sql/data.sql:/docker-entrypoint-initdb.d/2-data.sql
